@@ -216,47 +216,45 @@ li .project-meta {
 
 
 /* Adds */
-
 #floating-buttons {
     position: fixed;
     right: 20px;
     z-index: 1000;
     display: flex;
-    flex-direction: row;
-    gap: 0;
+    flex-direction: column;
+    gap: 8px;
     transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    background: rgba(17, 24, 39, 0.8);
-    backdrop-filter: blur(10px);
-    border-radius: 30px;
-    border: 1px solid rgba(252, 250, 250, 0.15);
-    padding: 5px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    background: transparent;
+    backdrop-filter: none;
+    border: none;
+    padding: 0;
+    box-shadow: none;
     top: 10px;
-    /* Start closer to the top */
 }
 
 #lang-toggle,
 #contact-button {
-    width: 36px;
-    height: 36px;
-    border: none;
+    width: 32px;
+    /* Réduit de 36px à 32px */
+    height: 32px;
+    /* Réduit de 36px à 32px */
+    border: 1px solid rgba(252, 250, 250, 0.3);
     border-radius: 50%;
-    background: transparent;
+    background: rgba(252, 250, 250, 0.1);
+    backdrop-filter: blur(10px);
     cursor: pointer;
-    font-size: 16px;
+    font-size: 14px;
+    /* Réduit de 16px à 14px */
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    color: var(--text-color);
+    color: #4a90e2;
+    /* Même couleur bleue pour les deux icônes */
     transition: all 0.3s ease;
     margin: 0;
-}
-
-#lang-toggle:hover,
-#contact-button:hover {
-    background: rgba(252, 250, 250, 0.1);
-    transform: scale(1.1);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    /* Ombre légèrement réduite */
 }
 
 
@@ -269,8 +267,11 @@ li .project-meta {
     }
     #lang-toggle,
     #contact-button {
-        width: 32px;
-        height: 32px;
-        font-size: 14px;
+        width: 28px;
+        /* Réduit de 32px à 28px */
+        height: 28px;
+        /* Réduit de 32px à 28px */
+        font-size: 12px;
+        /* Réduit de 14px à 12px */
     }
 }
