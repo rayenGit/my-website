@@ -29,84 +29,82 @@
 </head>
 
 <body>
-    <div class=content>
+    <!-- Language toggle button -->
+    <div id="floating-buttons">
+        <button id="lang-toggle" title="Change language">🌐</button>
+        <a href="https://wa.link/yq0ozr" target="_blank" id="contact-button" title="Send me a message">💬</a>
+    </div>
+
+    <div class="content">
         <p>
-            <a href=../index.html><img src=../index/images/avatar.png alt="Rayen Hafssi"></a>
+            <a href="../index.html"><img src="../index/images/avatar.png" alt="Rayen Hafssi"></a>
         </p>
-        <h1 id=gina-trapani><a href=../index.html>Rayen Hafssi</a></h1>
-        <h2 id=i-make-small-curiosities-on-the-web-for-the-joy-of-it>I make small curiosities on the web for the joy of it.
-        </h2>
-        <p>I believe the web is the greatest creative platform of all time. I try to make things that are interesting, beautiful, and easy to use. Here are a few things I&rsquo;ve made for fun.</p>
-        <div class=project-grid>
-            <div class=project-card>
-                <div class=project-type>Showcase</div>
-                <div class=project-header><span class=project-emoji>🍔</span>
-                    <span class=project-title>Bistro Marseille</span>
+        <h1 id="gina-trapani"><a href="../index.html">Rayen Hafssi</a></h1>
+        <h2 id="studio-intro">I make small curiosities on the web for the joy of it.</h2>
+        <p id="studio-description">I believe the web is the greatest creative platform of all time. I try to make things that are interesting, beautiful, and easy to use. Here are a few things I’ve made for fun.</p>
+
+        <div class="project-grid">
+            <!-- Project 1 -->
+            <div class="project-card">
+                <div class="project-type">Showcase</div>
+                <div class="project-header"><span class="project-emoji">🍔</span>
+                    <span id="proj1-title" class="project-title">Bistro Marseille</span>
                 </div>
-                <div class=project-description>An elegant website for a restaurant with a menu, photos, and online booking.</div>
-                <div class=project-date>April 2025</div>
-                <a href="#" class=project-link></a>
+                <div id="proj1-desc" class="project-description">An elegant website for a restaurant with a menu, photos, and online booking.</div>
             </div>
-            <div class=project-card>
-                <div class=project-type>Tradesperson</div>
-                <div class=project-header><span class=project-emoji>👨‍🔧</span>
-                    <span class=project-title>Plombier Express</span>
-                    <!-- "Express Plumber" - Name is often kept as-is -->
+
+            <!-- Project 2 -->
+            <div class="project-card">
+                <div class="project-type">Tradesperson</div>
+                <div class="project-header"><span class="project-emoji">👨‍🔧</span>
+                    <span id="proj2-title" class="project-title">Plombier Express</span>
                 </div>
-                <div class=project-description>A clear presentation of a plumber's services with a quick contact button.</div>
-                <div class=project-date>April 2025</div>
-                <a href="#" class=project-link></a>
+                <div id="proj2-desc" class="project-description">A clear presentation of a plumber's services with a quick contact button.</div>
             </div>
-            <div class=project-card>
-                <div class=project-type>E-commerce</div>
-                <!-- "E-commerce" is the same -->
-                <div class=project-header><span class=project-emoji>🛍️</span>
-                    <span class=project-title>Mode Locale</span>
-                    <!-- "Local Fashion" -->
+
+            <!-- Project 3 -->
+            <div class="project-card">
+                <div class="project-type">E-commerce</div>
+                <div class="project-header"><span class="project-emoji">🛍️</span>
+                    <span id="proj3-title" class="project-title">Mode Locale</span>
                 </div>
-                <div class=project-description>An online store to sell clothing and accessories from Marseille.</div>
-                <div class=project-date>March 2025</div>
-                <a href="#" class=project-link></a>
+                <div id="proj3-desc" class="project-description">An online store to sell clothing and accessories from Marseille.</div>
             </div>
-            <div class=project-card>
-                <div class=project-type>Portfolio</div>
-                <!-- "Portfolio" is the same -->
-                <div class=project-header><span class=project-emoji>📸</span>
-                    <span class=project-title>Studio Lumière</span>
-                    <!-- "Light Studio" - Name is often kept as-is -->
+
+            <!-- Project 4 -->
+            <div class="project-card">
+                <div class="project-type">Portfolio</div>
+                <div class="project-header"><span class="project-emoji">📸</span>
+                    <span id="proj4-title" class="project-title">Studio Lumière</span>
                 </div>
-                <div class=project-description>A modern portfolio for a photographer with an image gallery and contact form.</div>
-                <div class=project-date>Feb 2025</div>
-                <a href="#" class=project-link></a>
+                <div id="proj4-desc" class="project-description">A modern portfolio for a photographer with an image gallery and contact form.</div>
             </div>
-            <div class=project-card>
-                <div class=project-type>Blog</div>
-                <!-- "Blog" is the same -->
-                <div class=project-header><span class=project-emoji>📰</span>
-                    <span class=project-title>Vivre Marseille</span>
-                    <!-- "Living in Marseille" -->
+
+            <!-- Project 5 -->
+            <div class="project-card">
+                <div class="project-type">Blog</div>
+                <div class="project-header"><span class="project-emoji">📰</span>
+                    <span id="proj5-title" class="project-title">Vivre Marseille</span>
                 </div>
-                <div class=project-description>A blog about local culture with articles, an events calendar, and a newsletter.</div>
-                <div class=project-date>Jan 2025</div>
-                <a href="#" class=project-link></a>
+                <div id="proj5-desc" class="project-description">A blog about local culture with articles, an events calendar, and a newsletter.</div>
             </div>
-            <div class=project-card>
-                <div class=project-type>Non-profit</div>
-                <!-- Alternatively "Association" -->
-                <div class=project-header><span class=project-emoji>🤝</span>
-                    <span class=project-title>Solidarité Marseille</span>
-                    <!-- "Marseille Solidarity" - Name is kept as-is -->
+
+            <!-- Project 6 -->
+            <div class="project-card">
+                <div class="project-type">Non-profit</div>
+                <div class="project-header"><span class="project-emoji">🤝</span>
+                    <span id="proj6-title" class="project-title">Solidarité Marseille</span>
                 </div>
-                <div class=project-description>An informational website for a local non-profit with a presentation, events, and a donation form.</div>
-                <div class=project-date>Nov 2024</div>
-                <a href=https://truisms.ginatrapani.org/ class=project-link></a>
+                <div id="proj6-desc" class="project-description">An informational website for a local non-profit with a presentation, events, and a donation form.</div>
             </div>
         </div>
-        <p>Questions, notes, and bug reports are all welcome. You can send me a message on <a href=https://bsky.app/profile/ginatrapani.org>Bluesky</a>, or via email to my usual username at Gmail.
-        </p>
-        <p>Thanks for looking around.</p>
-        <p>&#x1f44b; &#x1f3f3;&#xfe0f;&zwj;&#x1f308; ♟️ &#x1f4d3;</p>
+
+        <p id="studio-contact">Questions, notes, and bug reports are all welcome. You can send me a message on <a href="https://bsky.app/profile/ginatrapani.org">Whatsapp</a></p>
+        <p id="studio-thanks">Thanks for looking around.</p>
     </div>
+
+    <!-- JS -->
+    <script src="../sass/main.js"></script>
 </body>
 <!-- Mirrored from ginatrapani.org/studio/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 Aug 2025 03:53:28 GMT -->
 
