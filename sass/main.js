@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const texts = {
         en: {
             intro: "Hello! I’m a person who loves to make stuff.",
-            bio: "Two years ago I fell in love with code when I got my very first BASIC program to run. Then I've been spending <a href='#'>my days</a> writing more code, exploring new ideas, and pushing myself to learn more.",
+            bio: "Back in 2022 I fell in love with code when I got my very first BASIC program to run. Then I've been spending <a href='#'>my days</a> writing more code, exploring new ideas, and pushing myself to learn more.",
             work: "These days, I <a href='studio/index.html'>make stuff on the web</a>. You can find me on <a href='#'>Bluesky</a> or send me a <a href='https://wa.link/yq0ozr' target='_blank'>message</a> to my WhatsApp.",
             thanks: "Thanks for stopping by.",
 
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function() {
         },
         fr: {
             intro: "Bonjour ! Je suis une personne qui adore créer des choses.",
-            bio: "Il y a deux ans, je suis tombé amoureux du code lorsque j'ai fait tourner mon tout premier programme BASIC. Depuis, je passe <a href='#'>mes journées</a> à écrire du code, explorer de nouvelles idées et apprendre toujours plus.",
+            bio: "En 2022, je suis tombé amoureux du code lorsque j'ai fait tourner mon tout premier programme BASIC. Depuis, je passe <a href='#'>mes journées</a> à écrire du code, explorer de nouvelles idées et apprendre toujours plus.",
             work: "Ces jours-ci, je <a href='studio/index.html'>crée sur le web</a>. Vous pouvez me trouver sur <a href='#'>Bluesky</a> ou m'envoyer un <a href='https://wa.link/yq0ozr' target='_blank'>message</a> sur WhatsApp.",
             thanks: "Merci de votre visite.",
 
@@ -179,4 +179,5 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     }
+
 });
