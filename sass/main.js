@@ -1,5 +1,5 @@
 // Wait for DOM to be fully loaded
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     // Language toggle functionality
     const langToggle = document.getElementById("lang-toggle");
     const floatingButtons = document.getElementById("floating-buttons");
@@ -13,13 +13,13 @@ document.addEventListener("DOMContentLoaded", function() {
     const texts = {
         en: {
             intro: "Hello! I’m a person who loves to make stuff.",
-            bio: "Two years ago I fell in love with code when I got my very first BASIC program to run. Then I've been spending <a href='#'>my days</a> writing more code, exploring new ideas, and pushing myself to learn more.",
-            work: "These days, I <a href='studio/index.html'>make stuff on the web</a>. You can find me on <a href='#'>Bluesky</a> or send me a <a href='https://wa.link/yq0ozr' target='_blank'>message</a> to my WhatsApp.",
+            bio: "Two years ago I fell in love with code when I got my very first BASIC program to run. Then I've been spending <a href='blogs/index.html'>my days</a> writing more code, exploring new ideas, and pushing myself to learn more.",
+            work: "These days, I <a href='studio/index.html'>make stuff on the web</a>. You can find me on WhatsApp by sending me a <a href='https://wa.link/yq0ozr' target='_blank'>message</a>.",
             thanks: "Thanks for stopping by.",
 
-            // studio page
+            // Studio page translations
             studioIntro: "I make small curiosities on the web for the joy of it.",
-            studioDesc: "I believe the web is the greatest creative platform of all time. I try to make things that are interesting, beautiful, and easy to use. Here are a few things I’ve made for fun.",
+            studioDescription: "I believe the web is the greatest creative platform of all time. I try to make things that are interesting, beautiful, and easy to use. Here are a few things I’ve made for fun.",
             proj1Title: "Bistro Marseille",
             proj1Desc: "An elegant website for a restaurant with a menu, photos, and online booking.",
             proj2Title: "Plombier Express",
@@ -32,18 +32,18 @@ document.addEventListener("DOMContentLoaded", function() {
             proj5Desc: "A blog about local culture with articles, an events calendar, and a newsletter.",
             proj6Title: "Solidarité Marseille",
             proj6Desc: "An informational website for a local non-profit with a presentation, events, and a donation form.",
-            studioContact: "Questions, notes, and bug reports are all welcome. You can send me a message on <a href='https://bsky.app/profile/ginatrapani.org'>Bluesky</a>, or via email to my usual username at Gmail.",
+            studioContact: "Questions, notes, and bug reports are all welcome. You can send me a message on <a href='https://wa.link/yq0ozr'>WhatsApp</a>",
             studioThanks: "Thanks for looking around."
         },
         fr: {
             intro: "Bonjour ! Je suis une personne qui adore créer des choses.",
-            bio: "Il y a deux ans, je suis tombé amoureux du code lorsque j'ai fait tourner mon tout premier programme BASIC. Depuis, je passe <a href='#'>mes journées</a> à écrire du code, explorer de nouvelles idées et apprendre toujours plus.",
-            work: "Ces jours-ci, je <a href='studio/index.html'>crée sur le web</a>. Vous pouvez me trouver sur <a href='#'>Bluesky</a> ou m'envoyer un <a href='https://wa.link/yq0ozr' target='_blank'>message</a> sur WhatsApp.",
+            bio: "Il y a deux ans, je suis tombé amoureux du code lorsque j'ai fait fonctionner mon tout premier programme BASIC. Depuis, je passe <a href='blogs/index.html'>mes journées</a> à écrire du code, explorer de nouvelles idées et apprendre toujours plus.",
+            work: "Ces jours-ci, je <a href='studio/index.html'>crée sur le web</a>. Vous pouvez me trouver sur WhatsApp en m'envoyant un <a href='https://wa.link/yq0ozr' target='_blank'>message</a>.",
             thanks: "Merci de votre visite.",
 
-            // studio page 
+            // Studio page translations
             studioIntro: "Je crée de petites curiosités sur le web pour le plaisir.",
-            studioDesc: "Je crois que le web est la plus grande plateforme créative de tous les temps. J'essaie de créer des choses intéressantes, belles et faciles à utiliser. Voici quelques projets que j'ai réalisés pour le plaisir.",
+            studioDescription: "Je crois que le web est la plus grande plateforme créative de tous les temps. J'essaie de créer des choses intéressantes, belles et faciles à utiliser. Voici quelques projets que j'ai réalisés pour le plaisir.",
             proj1Title: "Bistro Marseille",
             proj1Desc: "Un site élégant pour un restaurant avec menu, photos et réservation en ligne.",
             proj2Title: "Plombier Express",
@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function() {
             proj5Desc: "Un blog sur la culture locale avec des articles, un calendrier des événements et une newsletter.",
             proj6Title: "Solidarité Marseille",
             proj6Desc: "Un site d'information pour une association locale avec présentation, événements et formulaire de dons.",
-            studioContact: "Questions, notes et rapports de bugs sont les bienvenus. Vous pouvez m'envoyer un message sur <a href='https://bsky.app/profile/ginatrapani.org'>Bluesky</a>, ou par email à mon adresse habituelle.",
+            studioContact: "Questions, notes et rapports de bugs sont les bienvenus. Vous pouvez m'envoyer un message sur <a href='https://wa.link/yq0ozr'>WhatsApp</a>.",
             studioThanks: "Merci de votre visite."
         }
     };
@@ -181,36 +181,36 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
-document.addEventListener("DOMContentLoaded", function() {
-            const menuToggle = document.getElementById("menu-toggle");
-            const navMenu = document.getElementById("nav-menu");
-            let menuOpen = false;
+document.addEventListener("DOMContentLoaded", function () {
+    const menuToggle = document.getElementById("menu-toggle");
+    const navMenu = document.getElementById("nav-menu");
+    let menuOpen = false;
 
-            // Menu toggle functionality
-            if (menuToggle && navMenu) {
-                menuToggle.addEventListener("click", function() {
-                    menuOpen = !menuOpen;
-                    
-                    if (menuOpen) {
-                        // Change to X icon and show menu
-                        menuToggle.textContent = "✕";
-                        navMenu.classList.add("show");
-                    } else {
-                        // Change back to hamburger icon and hide menu
-                        menuToggle.textContent = "☰";
-                        navMenu.classList.remove("show");
-                    }
-                });
+    // Menu toggle functionality
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener("click", function () {
+            menuOpen = !menuOpen;
 
-                // Close menu when clicking outside
-                document.addEventListener("click", function(event) {
-                    if (menuOpen && 
-                        !menuToggle.contains(event.target) && 
-                        !navMenu.contains(event.target)) {
-                        menuOpen = false;
-                        menuToggle.textContent = "☰";
-                        navMenu.classList.remove("show");
-                    }
-                });
+            if (menuOpen) {
+                // Change to X icon and show menu
+                menuToggle.textContent = "✕";
+                navMenu.classList.add("show");
+            } else {
+                // Change back to hamburger icon and hide menu
+                menuToggle.textContent = "☰";
+                navMenu.classList.remove("show");
             }
         });
+
+        // Close menu when clicking outside
+        document.addEventListener("click", function (event) {
+            if (menuOpen &&
+                !menuToggle.contains(event.target) &&
+                !navMenu.contains(event.target)) {
+                menuOpen = false;
+                menuToggle.textContent = "☰";
+                navMenu.classList.remove("show");
+            }
+        });
+    }
+});
