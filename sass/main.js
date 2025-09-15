@@ -13,8 +13,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const texts = {
         en: {
             intro: "Hello! I’m a person who loves to make stuff.",
-            bio: "Two years ago I fell in love with code when I got my very first BASIC program to run. Then I've been spending <a href='blogs/index.html'>my days</a> writing more code, exploring new ideas, and pushing myself to learn more.",
-            work: "These days, I <a href='studio/index.html'>make stuff on the web</a>. You can find me on WhatsApp by sending me a <a href='https://wa.link/yq0ozr' target='_blank'>message</a>.",
+            bio: "The last few years back I fell in love with code when I got my very first BASIC program to run. Then I've been spending <a href='blogs/index.html'>my days</a> writing more code, exploring new ideas, and pushing myself to learn more.",
+            work: "These days, I <a href='studio/index.html'>make stuff on the web</a>. You can send me a <a href='https://wa.link/yq0ozr' target='_blank'>message</a> on WhatsApp or send me an email to my usual username at Gmail.",
             thanks: "Thanks for stopping by.",
 
             // Studio page translations
@@ -37,8 +37,8 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         fr: {
             intro: "Bonjour ! Je suis une personne qui adore créer des choses.",
-            bio: "Il y a deux ans, je suis tombé amoureux du code lorsque j'ai fait fonctionner mon tout premier programme BASIC. Depuis, je passe <a href='blogs/index.html'>mes journées</a> à écrire du code, explorer de nouvelles idées et apprendre toujours plus.",
-            work: "Ces jours-ci, je <a href='studio/index.html'>crée sur le web</a>. Vous pouvez me trouver sur WhatsApp en m'envoyant un <a href='https://wa.link/yq0ozr' target='_blank'>message</a>.",
+            bio: "Ces dernières années, je suis tombé amoureux du code lorsque j'ai fait tourner mon tout premier programme BASIC. Depuis, je passe <a href='blogs/index.html'>mes journées</a> à écrire du code, explorer de nouvelles idées et apprendre toujours plus.",
+            work: "Ces jours-ci, je <a href='studio/index.html'>crée sur le web</a>. Vous pouvez m'envoyant un <a href='https://wa.link/yq0ozr' target='_blank'>message</a> sur WhatsApp ou envoyez-moi un e-mail à mon nom d'utilisateur habituel sur Gmail.",
             thanks: "Merci de votre visite.",
 
             // Studio page translations
@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Update studio page elements if they exist
         updateElementText("studio-intro", t.studioIntro);
-        updateElementText("studio-description", t.studioDesc);
+        updateElementText("studio-description", t.studioDescription);
         updateElementText("proj1-title", t.proj1Title);
         updateElementText("proj1-desc", t.proj1Desc);
         updateElementText("proj2-title", t.proj2Title);
@@ -123,94 +123,61 @@ document.addEventListener("DOMContentLoaded", function () {
         updateLanguage();
     }
 
-    // Ultra-smooth scrolling for floating buttons
-    if (floatingButtons) {
-        let targetY = 10;
-        let currentY = 10;
-        let animationId = null;
-        let lastScrollY = window.scrollY;
-
-        // Very gentle easing function for extremely smooth movement
-        function ultraSmoothEase(t) {
-            return 1 - Math.pow(1 - t, 2); // Quadratic easing for very smooth movement
-        }
-
-        function animate() {
-            // Very slow interpolation for ultra-smooth movement
-            const progress = 0.03; // Reduced from 0.08 to make it much slower
-            currentY = currentY + (targetY - currentY) * ultraSmoothEase(progress);
-
-            floatingButtons.style.top = `${currentY}px`;
-            animationId = requestAnimationFrame(animate);
-        }
-
-        // Initialize position and set buttons to always be stacked vertically
-        floatingButtons.style.flexDirection = "column";
-        floatingButtons.style.borderRadius = "20px";
-        floatingButtons.style.top = `${currentY}px`;
-        animationId = requestAnimationFrame(animate);
-
-        let scrollTimeout;
-        window.addEventListener("scroll", () => {
-            // Clear previous timeout
-            clearTimeout(scrollTimeout);
-
-            const scrollPosition = window.scrollY;
-            const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-            const scrollPercent = maxScroll > 0 ? scrollPosition / maxScroll : 0;
-
-            // Calculate target position with boundaries
-            const maxY = window.innerHeight - floatingButtons.offsetHeight - 5;
-            targetY = 10 + (maxY - 10) * scrollPercent;
-
-            // Ensure targetY stays within boundaries
-            targetY = Math.max(10, Math.min(targetY, maxY));
-
-            // Longer debounce for smoother performance
-            scrollTimeout = setTimeout(() => {
-                // Additional adjustments after scrolling stops if needed
-            }, 200);
-        });
-
-        // Clean up animation on page unload
-        window.addEventListener('beforeunload', () => {
-            if (animationId) {
-                cancelAnimationFrame(animationId);
-            }
-        });
-    }
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-    const menuToggle = document.getElementById("menu-toggle");
-    const navMenu = document.getElementById("nav-menu");
-    let menuOpen = false;
+const menuToggle = document.getElementById("menu-toggle");
+const navMenu = document.getElementById("nav-menu");
+const menuIcon = menuToggle.querySelector("i"); // get the <i> inside the button
 
-    // Menu toggle functionality
-    if (menuToggle && navMenu) {
-        menuToggle.addEventListener("click", function () {
-            menuOpen = !menuOpen;
+let menuOpen = false;
 
-            if (menuOpen) {
-                // Change to X icon and show menu
-                menuToggle.textContent = "✕";
-                navMenu.classList.add("show");
-            } else {
-                // Change back to hamburger icon and hide menu
-                menuToggle.textContent = "☰";
-                navMenu.classList.remove("show");
-            }
-        });
+if (menuToggle && navMenu && menuIcon) {
+    menuToggle.addEventListener("click", function () {
+        menuOpen = !menuOpen;
 
-        // Close menu when clicking outside
-        document.addEventListener("click", function (event) {
-            if (menuOpen &&
-                !menuToggle.contains(event.target) &&
-                !navMenu.contains(event.target)) {
-                menuOpen = false;
-                menuToggle.textContent = "☰";
-                navMenu.classList.remove("show");
-            }
-        });
+        if (menuOpen) {
+            // Change to X icon and show menu
+            menuIcon.classList.remove("fa-brands", "fa-figma");
+            menuIcon.classList.add("fa-solid", "fa-xmark");
+            navMenu.classList.add("show");
+        } else {
+            // Change back to Figma icon and hide menu
+            menuIcon.classList.remove("fa-solid", "fa-xmark");
+            menuIcon.classList.add("fa-brands", "fa-figma");
+            navMenu.classList.remove("show");
+        }
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener("click", function (event) {
+        if (menuOpen &&
+            !menuToggle.contains(event.target) &&
+            !navMenu.contains(event.target)) {
+            menuOpen = false;
+            menuIcon.classList.remove("fa-solid", "fa-xmark");
+            menuIcon.classList.add("fa-brands", "fa-figma");
+            navMenu.classList.remove("show");
+        }
+    });
+}
+
+
+// Theme toggle
+const themeButton = document.getElementById("theme-button");
+
+themeButton.addEventListener("click", () => {
+    // Toggle light theme class on body
+    document.body.classList.toggle("light-theme");
+
+    // Change icon dynamically
+    const icon = themeButton.querySelector("i");
+    if (document.body.classList.contains("light-theme")) {
+        // Light theme active → show sun
+        icon.classList.remove("fa-circle-half-stroke");
+        icon.classList.add("fa-sun");
+    } else {
+        // Dark theme active → show half-moon
+        icon.classList.remove("fa-sun");
+        icon.classList.add("fa-circle-half-stroke");
     }
 });
