@@ -4,6 +4,7 @@
 }
 
 :root {
+    /* Primery Colors */
     --prim-bg-color: #111827;
     --text-color: #fcfafa;
     --link-color: var(--text-color);
@@ -18,6 +19,39 @@
     --call-out-bg: #FFC857;
     --ui-color: #E6E4D9;
     --footer-bg: #002FA7;
+
+    /* Secondary Colors */
+    color-scheme: light dark;
+    --bg-color: #FFFCF0;
+    --bg2-color: #F2F0E5;
+    --link-underline-color: color-mix(in srgb, #1C1B1A 40%, transparent);
+    --text-2-color: #1C1B1A;
+    --text2-2-color: #6F6E69;
+    --ui-color: #E6E4D9;
+    --footer-bg: #002FA7;
+    --footer-text: #E6E4D9;
+    --call-out-bg: #FFC857;
+    --call-out-border: #DC3C22
+}
+
+/* Unified theme variables */
+/* Default theme = dark */
+:root {
+  --bg: var(--bg-color);
+  --text: var(--text-2-color);
+  --link: var(--text-2-color);
+  --highlight: var(--text2-2-color);
+  --sec: var(--text2-2-color);
+}
+
+/* Light theme overrides */
+body.light-theme {
+/*  */
+--bg: var(--prim-bg-color);
+  --text: var(--text-color);
+  --link: var(--link-color);
+  --highlight: var(--highlight-color);
+  --sec: var(--sec-color);
 }
 
 body {
@@ -27,8 +61,8 @@ body {
     font-weight: 300;
     font-style: normal;
     font-size: var(--body-font-size);
-    color: var(--text-color);
-    background-color: var(--prim-bg-color);
+    color: var(--text);
+    background-color: var(--bg);
     display: flex;
     justify-content: center;
     align-items: center
@@ -92,13 +126,13 @@ h2 {
 }
 
 a {
-    color: var(--link-color);
-    border-bottom: dotted var(--text-color)1px
+    color: var(--link);
+    border-bottom: dotted var(--text) 1px
 }
 
 a:hover {
-    border-bottom: solid var(--text-color)1px;
-    color: var(--highlight-color)
+    border-bottom: solid var(--text) 1px;
+    color: var(--highlight)
 }
 
 img {
@@ -122,7 +156,7 @@ li {
 }
 
 li .project-meta {
-    color: var(--sec-color);
+    color: var(--sec);
     font-size: var(--sec-font-size);
     margin-left: 22px
 }
@@ -191,18 +225,18 @@ li .project-meta {
     font-size: 18px;
     letter-spacing: -.015em;
     line-height: 1;
-    color: var(--text-color)
+    color: var(--text)
 }
 
 .project-description {
-    color: #9c9b94;
+    color: var(--sec);
     margin-bottom: 8px;
     font-size: 14px;
     line-height: 1.4
 }
 
 .project-date {
-    color: #9c9b94;
+    color: var(--sec);
     font-size: 12px
 }
 
@@ -227,16 +261,36 @@ li .project-meta {
     right: 20px;
     top: 20px;
     z-index: 1000;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+
+    display: grid;
+    grid-template-columns: auto auto; /* left stack + right button */
+    grid-template-rows: auto auto;   /* two rows */
+    gap: 3px;
+    align-items: center;
+}
+
+/* Place buttons in the grid */
+#lang-toggle {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+#menu-toggle {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+#theme-button {
+    grid-column: 1;
+    grid-row: 1 / span 2; /* spans both rows */
+    align-self: center;   /* vertically centered */
 }
 
 #menu-toggle,
 #lang-toggle,
-#contact-button {
-    width: 35px;
-    height: 35px;
+#theme-button {
+    width: 30px;
+    height: 30px;
     border: 1px solid rgba(252, 250, 250, 0.3);
     border-radius: 50%;
     background: rgba(252, 250, 250, 0.1);
@@ -250,11 +304,12 @@ li .project-meta {
     color: var(--highlight);
     transition: all 0.3s ease;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    margin-top: 8px;
 }
 
 #menu-toggle:hover,
 #lang-toggle:hover,
-#contact-button:hover {
+#theme-button:hover {
     background: rgba(252, 250, 250, 0.2);
     transform: scale(1.05);
 }
@@ -285,7 +340,7 @@ li .project-meta {
     padding: 12px 15px;
     text-decoration: none;
     background: rgba(252, 250, 250, 0.1);
-    color: var(--text-color);
+    color: var(--text);
     border-radius: 5px;
     transition: background 0.2s;
     margin: 5px 0;
@@ -297,7 +352,7 @@ li .project-meta {
 #nav-menu a i {
     margin-right: 10px;
     font-size: 18px;
-    color: var(--footer-bg);
+    color: var(--call-out-bg);
 }
 
 @keyframes fadeIn {
@@ -323,7 +378,7 @@ li .project-meta {
 
     #menu-toggle,
     #lang-toggle,
-    #contact-button {
+    #theme-button {
         width: 36px;
         height: 36px;
         font-size: 16px;
@@ -361,7 +416,7 @@ li .project-meta {
 .call-out h2 a {
     text-decoration: none;
     border-bottom: none;
-    color: var(--text-color)
+    color: var(--text)
 }
 
 .call-out h1 a:hover,
@@ -388,7 +443,7 @@ li .project-meta {
 
 .post.call-out .help-icon {
     float: right;
-    color: var(--text-color);
+    color: var(--text);
     opacity: .7;
     transition: opacity .2s, color .2s;
     vertical-align: middle;
@@ -399,7 +454,7 @@ li .project-meta {
 
 .post.call-out .help-icon:hover,
 .post.call-out .help-icon:focus {
-    color: var(--link-color);
+    color: var(--link);
     opacity: 1;
     text-decoration: none;
     border-bottom: none
