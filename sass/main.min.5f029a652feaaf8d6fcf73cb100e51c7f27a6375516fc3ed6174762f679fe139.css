@@ -1,3 +1,6 @@
+/* .project-card */
+/* #nav-menu */
+
 * {
     line-height: 1.4em;
     text-decoration: none
@@ -31,20 +34,22 @@
     --footer-bg: #002FA7;
     --footer-text: #E6E4D9;
     --call-out-bg: #FFC857;
-    --call-out-border: #DC3C22
+    --call-out-border: #DC3C22;
+    --shadow-color: transparent;
 }
 
 /* Unified theme variables */
-/* Default theme = dark */
+/* Default theme = light */
 :root {
   --bg: var(--bg-color);
   --text: var(--text-2-color);
   --link: var(--text-2-color);
   --highlight: var(--text2-2-color);
   --sec: var(--text2-2-color);
+  --sh: var(--call-out-bg);
 }
 
-/* Light theme overrides */
+/* Dark theme overrides */
 body.light-theme {
 /*  */
 --bg: var(--prim-bg-color);
@@ -52,6 +57,7 @@ body.light-theme {
   --link: var(--link-color);
   --highlight: var(--highlight-color);
   --sec: var(--sec-color);
+  --sh: var(--shadow-color);
 }
 
 body {
@@ -180,7 +186,8 @@ li .project-meta {
     border-radius: 6px;
     padding: 20px;
     transition: transform .2s, background-color .2s;
-    cursor: pointer
+    cursor: pointer;
+    box-shadow: 0 0.3px 1px var(--sh);
 }
 
 .project-card:hover {
@@ -258,10 +265,9 @@ li .project-meta {
 /* Floating buttons */
 #floating-buttons {
     position: fixed;
-    right: 20px;
-    top: 20px;
+    right: 40px;
+    top: 40px;
     z-index: 1000;
-
     display: grid;
     grid-template-columns: auto auto; /* left stack + right button */
     grid-template-rows: auto auto;   /* two rows */
@@ -278,6 +284,7 @@ li .project-meta {
 #menu-toggle {
     grid-column: 2;
     grid-row: 2;
+    margin-top: -5px;
 }
 
 #theme-button {
@@ -289,11 +296,11 @@ li .project-meta {
 #menu-toggle,
 #lang-toggle,
 #theme-button {
-    width: 30px;
-    height: 30px;
-    border: 1px solid rgba(252, 250, 250, 0.3);
+    width: 25px;
+    height: 25px;
+    border: 0.00002px solid var(--sh);
     border-radius: 50%;
-    background: rgba(252, 250, 250, 0.1);
+    background: transparent;
     backdrop-filter: blur(10px);
     cursor: pointer;
     font-size: 18px;
@@ -303,8 +310,8 @@ li .project-meta {
     text-decoration: none;
     color: var(--highlight);
     transition: all 0.3s ease;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    margin-top: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    margin-top: 6px;
 }
 
 #menu-toggle:hover,
@@ -379,8 +386,8 @@ li .project-meta {
     #menu-toggle,
     #lang-toggle,
     #theme-button {
-        width: 36px;
-        height: 36px;
+        width: 25px;
+        height: 25px;
         font-size: 16px;
     }
 
