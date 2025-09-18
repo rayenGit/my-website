@@ -1,5 +1,7 @@
 /* .project-card */
+/* project-type */
 /* #nav-menu */
+/* #lang-toggle */
 
 * {
     line-height: 1.4em;
@@ -19,7 +21,6 @@
     --h2-mobile-font-size: 42px;
     --sec-font-size: 14px;
     --call-out-border: #DC3C22;
-    --call-out-bg: #FFC857;
     --ui-color: #E6E4D9;
     --footer-bg: #002FA7;
 
@@ -33,31 +34,31 @@
     --ui-color: #E6E4D9;
     --footer-bg: #002FA7;
     --footer-text: #E6E4D9;
-    --call-out-bg: #FFC857;
+    --call-out-bg: #25d366;
     --call-out-border: #DC3C22;
-    --shadow-color: transparent;
+    --shadow-color: rgba(255, 255, 255, .15);
 }
 
 /* Unified theme variables */
 /* Default theme = light */
 :root {
-  --bg: var(--bg-color);
-  --text: var(--text-2-color);
-  --link: var(--text-2-color);
-  --highlight: var(--text2-2-color);
-  --sec: var(--text2-2-color);
-  --sh: var(--call-out-bg);
+    --bg: var(--bg-color);
+    --text: var(--text-2-color);
+    --link: var(--text-2-color);
+    --highlight: var(--text2-2-color);
+    --sec: var(--text2-2-color);
+    --sh: var(--call-out-bg);
 }
 
 /* Dark theme overrides */
 body.light-theme {
-/*  */
---bg: var(--prim-bg-color);
-  --text: var(--text-color);
-  --link: var(--link-color);
-  --highlight: var(--highlight-color);
-  --sec: var(--sec-color);
-  --sh: var(--shadow-color);
+    /*  */
+    --bg: var(--prim-bg-color);
+    --text: var(--text-color);
+    --link: var(--link-color);
+    --highlight: var(--highlight-color);
+    --sec: var(--sec-color);
+    --sh: var(--shadow-color);
 }
 
 body {
@@ -201,7 +202,7 @@ li .project-meta {
     right: 16px;
     height: 24px;
     line-height: 24px;
-    background: rgba(255, 255, 255, .15);
+    background: var(--sh);
     color: rgba(255, 255, 255, .7);
     padding: 0 8px;
     font-size: 12px;
@@ -269,8 +270,10 @@ li .project-meta {
     top: 40px;
     z-index: 1000;
     display: grid;
-    grid-template-columns: auto auto; /* left stack + right button */
-    grid-template-rows: auto auto;   /* two rows */
+    grid-template-columns: auto auto;
+    /* left stack + right button */
+    grid-template-rows: auto auto;
+    /* two rows */
     gap: 3px;
     align-items: center;
 }
@@ -289,8 +292,10 @@ li .project-meta {
 
 #theme-button {
     grid-column: 1;
-    grid-row: 1 / span 2; /* spans both rows */
-    align-self: center;   /* vertically centered */
+    grid-row: 1 / span 2;
+    /* spans both rows */
+    align-self: center;
+    /* vertically centered */
 }
 
 #menu-toggle,
@@ -308,7 +313,7 @@ li .project-meta {
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    color: var(--highlight);
+    color: var(--text);
     transition: all 0.3s ease;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     margin-top: 6px;
@@ -359,7 +364,7 @@ li .project-meta {
 #nav-menu a i {
     margin-right: 10px;
     font-size: 18px;
-    color: var(--call-out-bg);
+    color: var(--sh);
 }
 
 @keyframes fadeIn {
@@ -441,7 +446,7 @@ li .project-meta {
 .post.call-out {
     position: relative;
     border-top: 6px solid var(--call-out-border);
-    background-color: var(--call-out-bg);
+    background-color: var(--sh);
     padding: 1.5rem 1rem;
     margin-top: 1rem;
     border-bottom-left-radius: 4px;
@@ -469,4 +474,172 @@ li .project-meta {
 
 .post.call-out .help-icon-svg {
     vertical-align: middle
+}
+
+
+
+
+/* WhatsApp Floating Button */
+#contact-toggle {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  border: none;
+  background: #25d366; /* WhatsApp green */
+  color: white;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+  z-index: 1100;
+}
+
+#contact-toggle:hover {
+  background: #1ebd5a;
+  transform: scale(1.1);
+}
+
+/* Overlay */
+#contact-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 1090;
+}
+
+/* Popup Box */
+#contact-box {
+  display: none;
+  position: fixed;
+  bottom: 100px;
+  right: 40px;
+  width: 320px;
+  background: #fff;
+  color: #333;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+  padding: 20px;
+  z-index: 1101;
+  text-align: center; /* Center header & button */
+}
+
+#contact-box.show,
+#contact-overlay.show {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+.contact-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contact-header h3 {
+  color: #25d366;
+  font-weight: bold;
+  margin: 0 auto;
+  text-align: center;
+  flex: 1;
+}
+
+#contact-close {
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: #25d366;
+}
+
+/* Center form fields */
+#contact-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-group {
+  margin-top: 12px;
+  width: 80%; /* 80% width for each field */
+  text-align: left; /* Align labels to the left inside the centered group */
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #444;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: transparent;
+  color: inherit;
+  box-sizing: border-box;
+}
+
+.submit-btn {
+  margin-top: 15px;
+  width: 80%;
+  padding: 10px;
+  background: #25d366;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+  background: #1ebd5a;
+}
+
+#form-result {
+  font-size: 13px;
+  margin-top: 8px;
+  text-align: center;
+}
+
+/* Mobile: center popup */
+@media (max-width: 768px) {
+  #contact-box {
+    bottom: auto;
+    right: auto;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 360px;
+    max-height: 80%;
+    overflow-y: auto;
+  }
+
+  #contact-toggle {
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
 }
