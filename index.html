@@ -107,7 +107,6 @@
     <div id="nav-menu">
         <a href="studio/index.html"><i class="fas fa-briefcase"></i> Studio</a>
         <a href="blogs/index.html"><i class="fas fa-book"></i> Blogs</a>
-        <a href="https://wa.link/yq0ozr"><i class="fa-brands fa-whatsapp"></i> Contact</a>
     </div>
 
     <div class=content>
@@ -127,6 +126,47 @@
         <p id="thanks">Thanks for stopping by.</p>
         <p>&#x1f44b; 📚♟️💻</p>
     </div>
+    <!-- WhatsApp Contact Popup -->
+    <div id="contact-widget">
+        <!-- Overlay -->
+        <div id="contact-overlay"></div>
+
+        <!-- Popup Box -->
+        <div id="contact-box">
+            <div class="contact-header">
+                <h3>Chat on WhatsApp</h3>
+                <button id="contact-close">&times;</button>
+            </div>
+            <form id="contact-form">
+                <div class="form-group">
+                    <label for="name">Your Name *</label>
+                    <input type="text" id="name" name="name" placeholder="John Doe" required />
+                </div>
+                <div class="form-group">
+                    <label for="phone">Your Phone Number *</label>
+                    <input type="tel" id="phone" name="phone" placeholder="1234567890" required />
+                </div>
+                <div class="form-group">
+                    <label for="message">Your Message *</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Describe what you need..."
+                        required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">
+                    <i class="fa-brands fa-whatsapp"></i> Send via WhatsApp
+                </button>
+                <p id="form-result"></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- WhatsApp Floating Button -->
+    <button id="contact-toggle" title="Chat on WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </button>
+
+
+
+
     <script src="sass/main.js"></script>
 </body>
 
