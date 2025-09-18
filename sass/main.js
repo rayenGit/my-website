@@ -181,3 +181,66 @@ themeButton.addEventListener("click", () => {
         icon.classList.add("fa-circle-half-stroke");
     }
 });
+
+
+// 
+// 
+//  CONTACT BUTTON 
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const toggle = document.getElementById("contact-toggle");
+  const box = document.getElementById("contact-box");
+  const overlay = document.getElementById("contact-overlay");
+  const closeBtn = document.getElementById("contact-close");
+  const form = document.getElementById("contact-form");
+  const result = document.getElementById("form-result");
+
+  function openWidget() {
+    box.classList.add("show");
+    overlay.classList.add("show");
+  }
+
+  function closeWidget() {
+    box.classList.remove("show");
+    overlay.classList.remove("show");
+  }
+
+  toggle.addEventListener("click", openWidget);
+  closeBtn.addEventListener("click", closeWidget);
+  overlay.addEventListener("click", closeWidget);
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const name = form.querySelector("#name").value.trim();
+    const phone = form.querySelector("#phone").value.trim();
+    const message = form.querySelector("#message").value.trim();
+
+    // Validation
+    if (message.length < 15) {
+      result.textContent = "⚠️ Please describe your request in more detail (at least 15 characters).";
+      return;
+    }
+    if (!phone.match(/^\+?\d{6,15}$/)) {
+      result.textContent = "⚠️ Please enter a valid phone number (with country code).";
+      return;
+    }
+
+    // Build WhatsApp message
+    const waMessage = `👤 Name: ${name}%0A📞 Phone: ${phone}%0A💬 Message: ${message}`;
+
+    // Your WhatsApp number in international format (remove +)
+    const myNumber = "33759648560";
+
+    const waLink = `https://wa.me/${myNumber}?text=${waMessage}`;
+
+    // Redirect to WhatsApp
+    window.open(waLink, "_blank");
+
+    result.textContent = "✅ Redirecting you to WhatsApp...";
+    form.reset();
+
+    setTimeout(() => result.textContent = "", 5000);
+  });
+});
